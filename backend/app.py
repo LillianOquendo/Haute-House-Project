@@ -1,6 +1,6 @@
 from models import db, Stylist, Service, Appointment
 from flask_migrate import Migrate
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, jsonify #may not need jsonify
 from flask_restful import Api, Resource
 import os
 
@@ -18,7 +18,7 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
-api = Api(app)
+api = Api(app) #may or may not use RESTful 
 
 @app.route('/')
 def home():
