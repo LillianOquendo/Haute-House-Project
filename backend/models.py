@@ -18,7 +18,7 @@ class Stylist(db.Model, SerializerMixin):
     stylist_info = db.Column(db.String)
     
     #add relationship
-    appointments = db.relationship('Appointment', backref='stylist')
+    appointments = db.relationship('Appointment', backref='stylists')
     
     #add serialization
     serialize_rules = ('-appointments.stylist')
@@ -46,8 +46,8 @@ class Appointment(db.Model, SerializerMixin):
     con_req = db.Column(db.Boolean) #con = consultation, req = request
     
     #add relationship
-    stylist_id = db.Column(db.Integer, db.ForeignKey('stylist.id'))
-    service_id = db.Column(db.Integer, db.ForeignKey('service.id'))
+    stylist_id = db.Column(db.Integer, db.ForeignKey('stylists.id'))
+    service_id = db.Column(db.Integer, db.ForeignKey('services.id'))
 
     #add serialization
     serialize_rules = ('-stylist.appointments', '-service.appointments')

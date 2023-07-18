@@ -5,7 +5,12 @@ from faker import Faker
 
 fake = Faker()
 
-
+if __name__ == '__main__':
+    with app.app_context():
+        print('clearing db...')
+        Stylist.query.delete()
+        Appointment.query.delete()
+        Service.query.delete()
 
 print("seeding stylists")
 stylists = [
@@ -123,16 +128,18 @@ services = [
         ]
 db.session.add_all(services)
 
-print ("seeding appointments")
-def create_appointments():
-    appointments = []
-    for _ in range (20):
-        a = Appointment(
-            client_name = fake.first_name(),
-            app_time = fake.date_time_this_month()
-        )
-        appointments.append(a)
+# print ("seeding appointments")
+# def create_appointments():
+#     appointments = []
+#     for _ in range (20):
+#         a = Appointment(
+#             client_name = fake.first_name(),
+#             app_time = fake.date_time_this_month()
+#         )
+#         appointments.append(a)
 
-    return appointments
+    # db.session.add_all(appointments)
+db.session.commit()
 
-#Don't forget your db.session.commit()
+print('done seeding!')
+
