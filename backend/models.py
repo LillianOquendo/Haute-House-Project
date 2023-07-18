@@ -46,8 +46,10 @@ class Appointment(db.Model, SerializerMixin):
     con_req = db.Column(db.Boolean) #con = consultation, req = request
     
     #add relationship
+
     stylist_id = db.Column(db.Integer, db.ForeignKey('stylists.id'))
     service_id = db.Column(db.Integer, db.ForeignKey('services.id'))
+
 
     #add serialization
     serialize_rules = ('-stylist.appointments', '-service.appointments')
