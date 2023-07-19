@@ -18,7 +18,6 @@ function App() {
       <div>
         <Routes>
           <Route path ='/' element= {<Home />}>
-            
           </Route>
         </Routes>
       </div>
