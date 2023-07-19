@@ -27,14 +27,14 @@ def home():
 class Services(Resource):
     def get(self):
         services = Service.query.all()
+        print(services)
         services_to_dict = [service.to_dict() for service in services]
 
-        response = make_response(jsonify(services_to_dict), 200)
+        response = make_response(services_to_dict, 200)
 
         return response
 
 api.add_resource(Services, '/services')
-
 
 class Stylists(Resource):
     def get(self):
@@ -54,7 +54,7 @@ class StylistsById(Resource):
 
         if stylist:
 
-            response = make_response(jsonify(vendor.to_dict()), 200)
+            response = make_response(jsonify(stylist.to_dict()), 200)
 
             return response
         

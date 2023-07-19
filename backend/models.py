@@ -22,7 +22,7 @@ class Stylist(db.Model, SerializerMixin):
     appointments = db.relationship('Appointment', backref='stylists')
     
     #add serialization
-    serialize_rules = ('-appointments.stylist')
+    serialize_rules = ('-appointments.stylist',)
 
 class Service(db.Model, SerializerMixin):
     __tablename__ = 'services'
@@ -36,7 +36,7 @@ class Service(db.Model, SerializerMixin):
     appointments = db.relationship('Appointment', backref='service')
 
     #add serialization
-    serialize_rules = ('-appointments.service')
+    serialize_rules = ('-appointments.service',)
 
 class Appointment(db.Model, SerializerMixin):
     __tablename__ = 'appointments'
