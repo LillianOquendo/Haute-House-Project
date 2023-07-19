@@ -4,19 +4,27 @@
 
 @layer components{
   /*Home Page CSS*/
-    .home-container{
-        @apply bg-black py-0 px-0;
+    .main{
+        @apply bg-hautehouse_navy flex-auto; /* px-96 py-96 */
 
     }
 
     .book-now-button-container{
-        @apply bg-white container py-10 px-10 mx-0 min-w-full flex flex-col items-center;
+        @apply py-10 px-10 mx-0 min-w-full flex flex-col items-center;
 
     }
 
     .book-now-button{
-        @apply bg-green-600 py-2 px-8 ; 
+        @apply bg-green-600 py-2 px-8 rounded-lg; 
 
+    }
+
+    .banner{
+        @apply bg-red-400 px-10 py-10 relative flex w-full items-center justify-between;
+    }
+
+    .navbar-container{
+        @apply relative flex w-full items-center justify-between bg-white py-2 text-neutral-600 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200 md:flex-wrap md:justify-start
     }
 /*Stylist Page CSS*/
 
