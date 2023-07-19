@@ -143,6 +143,7 @@ if __name__ == '__main__':
                 ])
                 )
         ]
+        db.session.add_all(stylists)
 
     # print ("seeding appointments")
     # def create_appointments():
