@@ -6,7 +6,7 @@ function Banner() {
 
     return (
         <div className="banner">
-            <img></img>
+            <a></a> 
         </div>
 
     )
