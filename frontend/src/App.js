@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import Home from './Home'
 import Navbar from './Header/Navbar';
+import Banner from './Header/Banner'
 import React from 'react';
 import Stylist from './Stylist';
 import About from './About';
@@ -17,8 +18,11 @@ function App() {
   return (
     <div className='main'>
       <nav className='navbar-container'>
-        <Navbar />
+        <Navbar stylist={<Stylist />} />
       </nav>
+      <div className="banner">
+        <Banner />
+      </div>
 
       <div>
         <Routes>
