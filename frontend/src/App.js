@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import Home from './Home'
 import React from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './index.css';
@@ -8,8 +9,11 @@ function App() {
 
 
   return (
-    <div>
-      <p>Here we go!</p>
+    <div className='main'>
+      <div>
+        
+      </div>
+      
     </div>
 
   );
