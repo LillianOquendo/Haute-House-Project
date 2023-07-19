@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components{
-
+  /*Home Page CSS*/
     .home-container{
         @apply bg-black py-0 px-0;
 
@@ -18,5 +18,15 @@
         @apply bg-green-600 py-2 px-8 ; 
 
     }
+/*Stylist Page CSS*/
+
+
+
+/*About Page CSS*/
+
+
+
+/*Contact Page CSS*/
+
 
 }

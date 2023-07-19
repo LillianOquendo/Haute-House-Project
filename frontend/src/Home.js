@@ -8,7 +8,6 @@ function Home() {
         
 
 
-
     return (
 
             <div className="book-now-button-container">

@@ -584,3 +584,68 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+/*Home Page CSS*/
+
+.book-now-button-container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .book-now-button-container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .book-now-button-container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .book-now-button-container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .book-now-button-container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .book-now-button-container {
+    max-width: 1536px;
+  }
+}
+
+.book-now-button-container {
+  margin-left: 0px;
+  margin-right: 0px;
+  display: flex;
+  min-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.book-now-button {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/*Stylist Page CSS*/
+
+/*About Page CSS*/
+
+/*Contact Page CSS*/
