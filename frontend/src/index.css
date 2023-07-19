@@ -9,6 +9,10 @@
 
     }
 
+    .home-container{
+        @apply bg-hautehouse_navy container mx-auto p-96;
+    }
+
     .book-now-button-container{
         @apply py-10 px-10 mx-0 min-w-full flex flex-col items-center;
 
