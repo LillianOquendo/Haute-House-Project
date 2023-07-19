@@ -18,11 +18,18 @@ function App() {
   return (
     <div className='main'>
       <nav className='navbar-container'>
-        <Navbar stylist={<Stylist />} />
+        <Navbar />
       </nav>
-      <div className="banner">
+      <div>
+        <Home  />
+      </div>
+
+{/*       <div className="banner">
         <Banner />
       </div>
+ */}
+
+
 
       <div>
         <Routes>
