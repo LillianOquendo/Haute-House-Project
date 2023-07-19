@@ -5,7 +5,7 @@
 @layer components{
   /*Home Page CSS*/
     .main{
-        @apply bg-hautehouse_navy flex-auto; /* px-96 py-96 */
+        @apply bg-hautehouse_navy flex-auto ; /* px-96 py-96 */
 
     }
 
@@ -20,7 +20,7 @@
     }
 
     .banner{
-        @apply bg-red-400 px-10 py-10 relative flex w-full items-center justify-between;
+        @apply bg-hautehouse_navy flex-auto ;
     }
 
     .navbar-container{
