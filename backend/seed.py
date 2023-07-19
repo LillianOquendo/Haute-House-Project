@@ -11,51 +11,28 @@ if __name__ == '__main__':
         Appointment.query.delete()
         Service.query.delete()
 
-        print("seeding stylists")
-        stylists = [
-                
-                Stylist(
-                stylist_name = "Lillian",
-                stylist_info = '''Lillian studied at Empire Beauty School. She's cut hair since the tender age of 4 
-                when she took some scissors to her own hair. She can cut hair of all lengths and textures with ease and very few people ever complain.'''
-                ),
-                Stylist(
-                stylist_name = "Tony",
-                stylist_info =  '''Tony studied at Modern International Beauty School. He's cut hair since the age of 20 and
-                has become an expert with scissors. He's not the best with clippers but is eager to learn!'''
-                ),
-                Stylist(
-                stylist_name = "Bryant",
-                stylist_info =  '''Bryant studied at Formula B Parisien Beauty School. He's cut hair since the age of 16 starting with friends and family.
-                He loves all things hair and is currently the designer of HairChic a clothing line created with leftover hair clippings.'''
-                )
-                ]
-                #stylists[0]['stylist_name']
-        db.session.add_all(stylists)
-
         print("seeding services")
         services = [
                 Service(
                     service_name = "Haircut (Medium - Long Hair)",
                     service_price = "55.00",
                     service_description = "Duration varies, medium hair is considered anything at or past the shoulders"
-                ),
+                    ),
                 Service(
                     service_name = "Haircut (Short Hair)",
                     service_price = "35.00",
                     service_description = "Duration varies, short hair is considered anything at or above the ears."
-                ),
+                    ),
                 Service(
                     service_name = "Blowdry",
                     service_price = "50.00",
                     service_description ="Duration varies, hair will be blown out according to customer's desire"
-                ),
+                    ),
                 Service(
                     service_name = "Cut & Blowdry",
                     service_price = "85.00",
                     service_description = "Duration varies, hair will be both cut and blown out."
-                    ),
-                
+                    ),                
                 Service(
                     service_name = "Single Process",
                     service_price = "90.00",
@@ -127,17 +104,57 @@ if __name__ == '__main__':
                 ]
         db.session.add_all(services)
 
-        # print ("seeding appointments")
-        # def create_appointments():
-        #     appointments = []
-        #     for _ in range (20):
-        #         a = Appointment(
-        #             client_name = fake.first_name(),
-        #             app_time = fake.date_time_this_month()
-        #         )
-        #         appointments.append(a)
+        print("seeding stylists")
 
-            # db.session.add_all(appointments)
+        stylists = [
+            Stylist(
+                stylist_name="Lillian",
+                stylist_info='''Lillian studied at Empire Beauty School. She's cut hair since the tender age of 4 when
+                she took some scissors to her own hair. She can cut hair of all lengths and textures with ease and very
+                few people ever complain.''',
+                services_provided="\n\n".join([
+                    f"Service Name: {service.service_name}\n"
+                    f"Service Price: {service.service_price}\n"
+                    f"Service Description: {service.service_description}\n"
+                    for service in services[:5]
+                ])
+                ),
+            Stylist(
+                stylist_name="Tony",
+                stylist_info='''Tony studied at Modern International Beauty School. He's cut hair since the age of 20 and
+                has become an expert with scissors. He's not the best with clippers but is eager to learn!''',
+                services_provided="\n\n".join([
+                    f"Service Name: {service.service_name}\n"
+                    f"Service Price: {service.service_price}\n"
+                    f"Service Description: {service.service_description}\n"
+                    for service in services[5:12]
+                ])
+                ),
+            Stylist(
+                stylist_name="Bryant",
+                stylist_info='''Bryant studied at Formula B Parisien Beauty School. He's cut hair since the age of 16 starting with
+                friends and family. He loves all things hair and is currently the designer of HairChic, a clothing line created with
+                leftover hair clippings.''',
+                services_provided="\n\n".join([
+                    f"Service Name: {service.service_name}\n"
+                    f"Service Price: {service.service_price}\n"
+                    f"Service Description: {service.service_description}\n"
+                    for service in services[12:17]
+                ])
+                )
+        ]
+
+    # print ("seeding appointments")
+    # def create_appointments():
+    #     appointments = []
+    #     for _ in range (20):
+    #         a = Appointment(
+    #             client_name = fake.first_name(),
+    #             app_time = fake.date_time_this_month()
+    #         )
+    #         appointments.append(a)
+
+        # db.session.add_all(appointments)
         db.session.commit()
 
         print('done seeding!')

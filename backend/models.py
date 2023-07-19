@@ -16,6 +16,7 @@ class Stylist(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     stylist_name = db.Column(db.String)
     stylist_info = db.Column(db.String)
+    services_provided = db.Column(db.String)
     
     #add relationship
     appointments = db.relationship('Appointment', backref='stylists')
