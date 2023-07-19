@@ -69,5 +69,6 @@ class Appointment(db.Model, SerializerMixin):
         
         if app_time == cutoff:
             print('out of date range')
+            raise ValueError('Please pick a date prior to 08/17/23')
         else:
             return app_time

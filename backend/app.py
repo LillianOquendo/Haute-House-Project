@@ -24,3 +24,44 @@ api = Api(app) #may or may not use RESTful
 def home():
     return ''
 
+class Services(Resource):
+    def get(self):
+        services = Service.query.all()
+        services_to_dict = [service.to_dict() for service in services]
+
+        response = make_response(jsonify(services_to_dict), 200)
+
+        return response
+
+api.add_resource(Services, '/services')
+
+
+class Stylists(Resource):
+    def get(self):
+        stylists = Stylist.query.all()
+        stylists_to_dict = [stylist.to_dict() for stylist in stylists]
+
+        response = make_response(jsonify(stylists_to_dict), 200)
+
+        return response
+
+api.add_resource(Stylists, '/stylists')
+
+
+class StylistsById(Resource):
+    def get(self, id):
+        stylist = Stylist.query.filter(Stylist.id == id).first()
+
+        if stylist:
+
+            response = make_response(jsonify(vendor.to_dict()), 200)
+
+            return response
+        
+        else:
+
+            response = make_response({"error": "Stylist not found"}, 404)
+
+            return response
+        
+api.add_resource(StylistsById, '/stylists/<int:id>')
