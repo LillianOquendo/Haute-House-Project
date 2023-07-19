@@ -5,12 +5,12 @@
 @layer components{
   /*Home Page CSS*/
     .main{
-        @apply bg-hautehouse_navy flex-auto ; /* px-96 py-96 */
+        @apply bg-hautehouse_navy flex-auto; 
 
     }
 
     .home-container{
-        @apply bg-hautehouse_navy container mx-auto p-96;
+        @apply bg-hautehouse_navy container mx-auto my-auto;
     }
 
     .book-now-button-container{
@@ -24,7 +24,7 @@
     }
 
     .banner{
-        @apply bg-hautehouse_navy flex-auto ;
+        @apply bg-white flex-auto ;
     }
 
     .navbar-container{

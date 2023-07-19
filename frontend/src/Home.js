@@ -10,9 +10,9 @@ function Home() {
 
     return (
             <div className="home-container">
-            {/* <span className="book-now-button-container">
+            <span className="book-now-button-container">
                 <button type="button" className="book-now-button" onClick={handleClick}>Book Now!</button>
-            </span> */}
+            </span>
             </div>
 
     )

@@ -1,10 +1,15 @@
 import React from "react";
 
-function Stylist() {
+
+function Stylists() {
+
+
+
     return (
         <div>
 
         </div>
+
     )
 }
-export default Stylist
+export default Stylists
