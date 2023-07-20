@@ -9,14 +9,18 @@ function Home() {
 
         form.style.display='block'
         button.style.display='none'
+
+        
     }
 
-    function handleCloseForm() {
+    function handleCloseForm(event) {
         const form = document.getElementById('book-now-form')
         const button = document.getElementById('book-now')
 
         form.style.display='none'
         button.style.display='block'
+
+        event.preventDefault();
 
     }
         

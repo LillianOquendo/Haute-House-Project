@@ -23,18 +23,19 @@
 
     }
 
-    .banner{
+    /* .banner{
         @apply bg-white container flex-auto mx-auto ;
-    }
+    } */
 
     .navbar-container{
-        @apply relative flex w-full items-center justify-between bg-white py-2 text-neutral-600 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200 md:flex-wrap md:justify-start
+        @apply relative flex w-full items-center justify-between bg-white py-2 text-neutral-600 shadow-lg hover:text-hautehouse_ltegold focus:text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200 md:flex-wrap md:justify-start
     }
 
     .book-now-form-container{
         @apply hidden
     }
 /*Stylist Page CSS*/
+
 
 
 

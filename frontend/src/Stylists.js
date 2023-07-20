@@ -6,7 +6,8 @@ function Stylists() {
 
 
     return (
-        <div>
+        <div className="stylist-container">
+            <img className="" />
 
         </div>
 
