@@ -9,6 +9,9 @@ module.exports = {
         hautehouse_ltegold: '#E4CC43',
         hautehouse_gold: '#C1A612'
       },
+      fontFamily: {
+        'veganstyle' : ['VeganStyle', 'sans-serif']
+      },
     },
   },
   plugins: [],

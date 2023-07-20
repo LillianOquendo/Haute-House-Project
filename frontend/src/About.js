@@ -23,7 +23,6 @@ const about_photo = "https://i.ibb.co/1qXqG2T/Screenshot-2023-07-18-223132.jpg"
             that surpasses all expectations.
             </p>
             <div className="h-screen flex items-center justify-center">
-            <img src="https://i.ibb.co/1qXqG2T/Screenshot-2023-07-18-223132.jpg" alt="About Photo"/>
             <img src={about_photo} alt="About Photo"/>
             </div>
 
