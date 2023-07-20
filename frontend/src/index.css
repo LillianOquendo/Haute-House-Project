@@ -44,4 +44,7 @@
 
 
 /*Contact Page CSS*/
+    .map{
+        @apply h-24;
+    }
 }
