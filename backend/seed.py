@@ -165,17 +165,17 @@ if __name__ == '__main__':
         ]
         db.session.add_all(stylists)
 
-    # print ("seeding appointments")
-    # def create_appointments():
-    #     appointments = []
-    #     for _ in range (20):
-    #         a = Appointment(
-    #             client_name = fake.first_name(),
-    #             app_time = fake.date_time_this_month()
-    #         )
-    #         appointments.append(a)
+    print ("seeding appointments")
+    def create_appointments():
+        appointments = []
+        for _ in range (20):
+            a = Appointment(
+                client_name = fake.first_name(),
+                app_time = fake.date_time_this_month()
+            )
+            appointments.append(a)
 
-        # db.session.add_all(appointments)
+        db.session.add_all(appointments)
         db.session.commit()
 
         print('done seeding!')
