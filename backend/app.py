@@ -67,6 +67,14 @@ class StylistsById(Resource):
 api.add_resource(StylistsById, '/stylists/<int:id>')
 
 class Appointments(Resource):
+    def get(self):
+        appointments = Appointment.query.all()
+        appointments_to_dict = [appointment.to_dict() for appointment in appointments]
+
+        response = make_response(appointments_to_dict, 200)
+
+        return response
+
     def post(self):
 
         data = request.get_json()
