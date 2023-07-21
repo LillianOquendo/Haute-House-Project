@@ -14,17 +14,18 @@ function App() {
 
   const [stylists, setStylists] = useState([])
   const [newAppointment, setNewAppointment] = useState([])
+  
   useEffect(() => {
     fetch("/stylists")
     .then(resp => resp.json())
     .then(data => setStylists(data))
-  },[])
+  }, [])
 
   useEffect(() => {
     fetch('/appointments')
     .then(resp => resp.json())
     .then(newAppointment => setNewAppointment(newAppointment))
-}, [])
+  }, [])
 
 
   return (
