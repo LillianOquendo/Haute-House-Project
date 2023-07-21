@@ -4,7 +4,7 @@ function Stylist({name, info, services }) {
 
 
     return (
-<div className="max-w-sm rounded overflow-hidden shadow-lg bg-antiflashwhite border-green-600 border-2">
+<div className="max-w-sm rounded text-white overflow-hidden shadow-lg bg-antiflashwhite border-hautehouse_ltegold border-2">
 
   {/* <img className="object-scale-down h-48 w-96" src={image} alt={gameTitle}/> This is where we hardcode an image*/}
 
