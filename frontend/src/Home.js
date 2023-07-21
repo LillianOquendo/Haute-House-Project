@@ -1,11 +1,31 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Banner from './Header/Banner'
+import Stylist from "./Stylist";
 
-function Home() {
 
+function Home({stylists}) {
+    console.log(stylists)
+//create a for loop to create an id for each stylist
+    
+//state for formData
+const [formData, setFormData] = useState({
+    client_name : '',
+    service_id : '',
+    stylist_id : '',
+    appt_date_time : '',
+});
+
+//handle change for submit button
+function handleChange(event){
+    const {name, value} = event.target;
+    setFormData(prevData => ({
+        ...prevData,
+        [name]:value,
+    }));
+}
     function handleClick() {
-       const form =  document.getElementById('book-now-form')
-       const button = document.getElementById('book-now')
+        const form =  document.getElementById('book-now-form')
+        const button = document.getElementById('book-now')
 
         form.style.display='block'
         button.style.display='none'
@@ -23,8 +43,35 @@ function Home() {
         event.preventDefault();
 
     }
-        
+    
+    // useEffect(() =>{
+    //     fetch("/stylists")
+    //     .then(response => response.json())
+    //     .then(data =>{
+    //         setStylistData(data)
+    //     });
+    // },[]);
+    // console.log(stylistData);
 
+    //send form data to backend
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        fetch('/appointments', { 
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data)
+        })
+
+        
+        };
 
     return (
             <div className="home-container">
@@ -33,14 +80,12 @@ function Home() {
             <span className="book-now-button-container">
                 <button type="button" className="book-now-button" onClick={handleClick} id="book-now">Request An Appointment!</button>
             <span className="book-now-form-container" id="book-now-form">
-                <p className='text-hautehouse_yellow text-xl text-center font-veganstyle'>Send us a request for an appointment and we will reachout within 48 hours! :)</p>
-                <form>
-                    <label for='fname' className="text-hautehouse_yellow">First Name:</label><br></br>
-                    <input type='text' id='fname'></input><br></br>
-                    <label for='lname' className="text-hautehouse_yellow">Last Name:</label><br></br>
-                    <input type='text' id='lname'></input><br></br>
+                <p className='text-hautehouse_yellow text-xl text-center font-veganstyle'>Send us a request for an appointment and we will reachout within 48 hours! ✂️</p>
+                <form onSubmit = {handleSubmit}>
+                    <label for='client-name' className="text-hautehouse_yellow">First & Last Name:</label><br></br>
+                    <input type='text' id='lname' onChange={handleChange} name='lastName' value={formData.lastName}></input><br></br>
                     <label for='services' className="text-hautehouse_yellow">Services</label><br></br>
-                    <select name="select-services" id="select-services">
+                    <select name="select-services" id="select-services" onChange={handleChange} value={formData.selectedService}>
                         <option value='Haircut (Medium - Long Hair) $55.00'>Haircut (Medium - Long Hair) $55.00</option>
                         <option value='Haircut (Short Hair) $35.00'>Haircut (Short Hair) $35.00</option>
                         <option value='Blowdry $50.00'>Blowdry $50.00</option>
@@ -59,8 +104,14 @@ function Home() {
                         <option value='Beard Trim $30.00'>Beard Trim $30.00</option>
                         <option value='Haircut and Beard Trim $50.00'>Haircut and Beard Trim $50.00</option>
                     </select><br></br>
-                    <label for='appt-time' className="text-hautehouse_yellow">Requested Appointment Date</label><br></br>
-                    <input type="date" id='appt-date'></input><br></br>
+                    <label for='stylists' className="text-hautehouse_yellow">Stylists</label><br></br>
+                        <select name="selected-stylist" id="selected-stylist" onChange={handleChange} value={formData.selectedStylist}>
+                        <option value='1'>Bryant</option>
+                        <option value='2'>Lillian</option>
+                        <option value='3'>Tony</option>
+                        </select><br></br>
+                    <label for='appt-req' className="text-hautehouse_yellow">Requested Appointment Date & Time</label><br></br>
+                    <input type="datetime-local" id='appt-date-time' name='apptDateTime' onChange={handleChange}></input><br></br>
                     <button className="text-hautehouse_yellow p-5">Submit</button>
                     <button onClick={handleCloseForm} className="text-hautehouse_yellow">Close Form</button>
                 </form>
