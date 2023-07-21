@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components{
-  /*Home Page CSS*/
+    /*Home Page CSS*/
     .main{
         @apply bg-hautehouse_navy flex-auto; 
 
@@ -43,16 +43,15 @@
     .edit-form{
         @apply hidden
     }
-/*Stylist Page CSS*/
+    /*Stylist Page CSS*/
 
 
 
-
-/*About Page CSS*/
-
+    /*About Page CSS*/
 
 
-/*Contact Page CSS*/
+
+    /*Contact Page CSS*/
     .map{
         @apply h-24;
     }
