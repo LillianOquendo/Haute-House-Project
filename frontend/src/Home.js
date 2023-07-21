@@ -4,26 +4,41 @@ import Stylist from "./Stylist";
 
 
 function Home({stylists}) {
-    console.log(stylists)
-//create a for loop to create an id for each stylist
-    
-//state for formData
-const [formData, setFormData] = useState({
-    client_name : '',
-    service_id : '',
-    stylist_id : '',
-    appt_date_time : ''
-});
+    const [appointments, setAppointments] = useState([])
+    const [client_name, setClient_Name] = useState('')
+    const [service_id, setServices_ID] = useState('')
+    const [stylist_id, setStylist_ID] = useState('')
+    const [app_date_time, setAppt_Date_Time] = useState('')
 
+    useEffect(() => {
+        fetch('/appointments')
+        .then(resp => resp.json())
+        .then(appointments => setAppointments(appointments))
+    }, [])
 
-//handle change for submit button
-function handleChange(event){
-    const {name, value} = event.target.value;
-    setFormData(prevData => ({
-        ...prevData,
-        [name]:value,
-    }));
-}
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        const new_appointment = {
+            client_name: client_name,
+            service_id: service_id,
+            stylist_id: stylist_id,
+            app_date_time: app_date_time
+        }
+
+        fetch('/appointments', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body : JSON.stringify(new_appointment)
+        })
+        .then(resp => resp.json())
+        .then(new_appointment => setAppointments([...appointments, new_appointment]))
+
+    }
+
     function handleClick() {
         const form =  document.getElementById('book-now-form')
         const button = document.getElementById('book-now')
@@ -44,38 +59,8 @@ function handleChange(event){
         event.preventDefault();
 
     }
-    
-    // useEffect(() =>{
-    //     fetch("/stylists")
-    //     .then(response => response.json())
-    //     .then(data =>{
-    //         setStylistData(data)
-    //     });
-    // },[]);
-    // console.log(stylistData);
 
-    //send form data to backend
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        
-        fetch('/appointments', { 
-            method: 'POST',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
 
-            console.log(data)
-        })
-
-        
-        };
-
-        console.log(formData.client_name)
-        console.log(formData.appt_date_time)
 
     return (
             <div className="home-container">
@@ -87,9 +72,9 @@ function handleChange(event){
                 <p className='text-hautehouse_yellow text-xl text-center font-veganstyle'>Send us a request for an appointment and we will reachout within 48 hours! ✂️</p>
                 <form onSubmit = {handleSubmit}>
                     <label for='client-name' className="text-hautehouse_yellow">First & Last Name:</label><br></br>
-                    <input type='text' id='client_name' onChange={handleChange} name='client_name' value={formData.client_name}></input><br></br>
+                    <input type='text' id='client_name' onChange={(e) => setClient_Name(e.target.value)} name='client_name' value={client_name}></input><br></br>
                     <label for='services' className="text-hautehouse_yellow">Services</label><br></br>
-                    <select name="service_id" id="service_id" onChange={handleChange} value={formData.service_id}>
+                    <select name="service_id" id="service_id" onChange={(e) => setServices_ID(e.target.value)} value={service_id}>
                         <option value='Haircut (Medium - Long Hair) $55.00'>Haircut (Medium - Long Hair) $55.00</option>
                         <option value='Haircut (Short Hair) $35.00'>Haircut (Short Hair) $35.00</option>
                         <option value='Blowdry $50.00'>Blowdry $50.00</option>
@@ -109,13 +94,13 @@ function handleChange(event){
                         <option value='Haircut and Beard Trim $50.00'>Haircut and Beard Trim $50.00</option>
                     </select><br></br>
                     <label for='stylists' className="text-hautehouse_yellow">Stylists</label><br></br>
-                        <select name="stylist_id" id="stylist_id" onChange={handleChange} value={formData.stylist_id}>
-                        <option value='1'>Bryant</option>
-                        <option value='2'>Lillian</option>
-                        <option value='3'>Tony</option>
+                        <select name="stylist_id" id="stylist_id" onChange={(e) => setStylist_ID(e.target.value)} value={stylist_id}>
+                        <option value='3'>Bryant</option>
+                        <option value='1'>Lillian</option>
+                        <option value='2'>Tony</option>
                         </select><br></br>
                     <label for='appt-req' className="text-hautehouse_yellow">Requested Appointment Date & Time</label><br></br>
-                    <input type="text" id='appt-date-time' name='apptDateTime' onChange={handleChange} value={formData.appt_date_time}></input><br></br>
+                    <input type="text" id='appt-date-time' name='apptDateTime' onChange={(e) => setAppt_Date_Time(e.target.value)} value={app_date_time}></input><br></br>
                     <button className="text-hautehouse_yellow p-5">Submit</button>
                     <button onClick={handleCloseForm} className="text-hautehouse_yellow">Close Form</button>
                 </form>
