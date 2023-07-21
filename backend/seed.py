@@ -133,7 +133,7 @@ if __name__ == '__main__':
         stylists = [
             Stylist(
                 
-                                stylist_name="Lillian",
+                stylist_name="Lillian",
                 stylist_info='''Lillian studied at Empire Beauty School. She's cut hair since the tender age of 4 when
                 she took some scissors to her own hair. She can cut hair of all lengths and textures with ease and very
                 few people ever complain.''',
@@ -147,7 +147,7 @@ if __name__ == '__main__':
                 ),
             Stylist(
                 
-                                stylist_name="Tony",
+                stylist_name="Tony",
                 stylist_info='''Tony studied at Modern International Beauty School. He's cut hair since the age of 20 and
                 has become an expert with scissors. He's not the best with clippers but is eager to learn!''',
                 stylist_img = 'frontend/public/stylist photos/Tony.jpg',
@@ -160,7 +160,7 @@ if __name__ == '__main__':
                 ),
             Stylist(
                 
-                                stylist_name="Bryant",
+                stylist_name="Bryant",
                 stylist_info='''Bryant studied at Formula B Parisien Beauty School. He's cut hair since the age of 16 starting with
                 friends and family. He loves all things hair and is currently the designer of HairChic, a clothing line created with
                 leftover hair clippings.''',
