@@ -9,10 +9,10 @@ function Contact() {
     return (
         <div>
             
-            <h2 className="text-7xl text-center" >Contact Us</h2>
-            <p>Phone: {phoneNumber}</p>
-            <p>Address: {address}</p>
-            <p>Email: {email}</p>
+            <h2 className="text-7xl text-center text-hautehouse_yellow" >Contact Us</h2>
+            <p className="text-xl text-center text-hautehouse_yellow">Phone: {phoneNumber}</p>
+            <p className="text-xl text-center text-hautehouse_yellow">Address: {address}</p>
+            <p className="text-xl text-center text-hautehouse_yellow">Email: {email}</p>
             <img className="map" src={process.env.PUBLIC_URL + '/map.png'} alt="screengrab"></img>
 
         </div>
