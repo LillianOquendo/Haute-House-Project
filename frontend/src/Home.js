@@ -12,7 +12,7 @@ const [formData, setFormData] = useState({
     client_name : '',
     service_id : '',
     stylist_id : '',
-    appt_date_time : '',
+    appt_date_time : ''
 });
 
 //handle change for submit button
@@ -111,7 +111,7 @@ function handleChange(event){
                         <option value='3'>Tony</option>
                         </select><br></br>
                     <label for='appt-req' className="text-hautehouse_yellow">Requested Appointment Date & Time</label><br></br>
-                    <input type="datetime-local" id='appt-date-time' name='apptDateTime' onChange={handleChange}></input><br></br>
+                    <input type="datetime-local" id='appt-date-time' name='apptDateTime' onChange={handleChange} value={formData.appt_date_time}></input><br></br>
                     <button className="text-hautehouse_yellow p-5">Submit</button>
                     <button onClick={handleCloseForm} className="text-hautehouse_yellow">Close Form</button>
                 </form>
