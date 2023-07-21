@@ -17,7 +17,7 @@ function Home({stylists}) {
     }, [])
 
     function handleSubmit(e) {
-        e.preventDefault()
+        // e.preventDefault()
 
         const new_appointment = {
             client_name: client_name,
@@ -36,6 +36,9 @@ function Home({stylists}) {
         })
         .then(resp => resp.json())
         .then(new_appointment => setAppointments([...appointments, new_appointment]))
+
+        setClient_Name('')
+        setAppt_Date_Time('')
 
     }
 

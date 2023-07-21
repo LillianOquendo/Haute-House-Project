@@ -13,12 +13,12 @@ function AppointmentCard({date, name, id}){
             },
         })
         
-        console.log('Clicked!')
+       alert('Appointment Deleted! Please refresh to reflect changes.')
 
     }
 
     function handleSubmit(e) {
-        e.preventDefault()
+        // e.preventDefault()
         console.log(e)
         fetch(`/appointments/${id}`, {
             method: "PATCH",
