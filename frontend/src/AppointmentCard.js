@@ -35,8 +35,8 @@ function AppointmentCard({date, name, id}){
     
 
     function handleClick() {
-        const form =  document.getElementById('edit-form')
-        const button = document.getElementById('edit-button')
+        const form =  document.getElementById(`edit-from${id}`)
+        const button = document.getElementById(`edit-button${id}`)
 
         form.style.display='block'
         button.style.display='none'
@@ -52,8 +52,8 @@ function AppointmentCard({date, name, id}){
         <h1 className="font-bold text-xl mb-2 text-hautehouse_ltegold">{name} has an appointment on: </h1>
             <h1 className="font-bold text-xl mb-2 text-hautehouse_ltegold">{date}</h1>
             <button type="button" onClick={handleDelete} className="text-white">Delete</button><br></br>
-            <button type='button' id="edit-button" onClick={handleClick} className="text-white">Edit</button>
-            <form id="edit-form" className="edit-form">
+            <button type='button' id={`edit-button${id}`} onClick={handleClick} className="text-white">Edit</button>
+            <form id={`edit-from${id}`} className="edit-form">
                 <label>Enter new date here(mm/dd/yyyy)</label>
                 <input type='text' onChange={(e) => setDate(e.target.value)} value={newDate}></input>
                 <button type='button' onClick={handleSubmit} className="text-white">Confirm</button>
