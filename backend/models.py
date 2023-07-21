@@ -20,7 +20,7 @@ class Stylist(db.Model, SerializerMixin):
     services_provided = db.Column(db.String)
     
     #add relationship
-    appointments = db.relationship('Appointment', backref='stylists')
+    appointments = db.relationship('Appointment', backref='stylist')
     
     #add serialization
     serialize_rules = ('-appointments.stylist',)
@@ -44,8 +44,7 @@ class Appointment(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer,primary_key=True)
     client_name = db.Column(db.String)
-    app_time = db.Column(db.String)
-    con_req = db.Column(db.Boolean) #con = consultation, req = request
+    app_date_time = db.Column(db.String)
     
     #add relationship
 
@@ -59,17 +58,17 @@ class Appointment(db.Model, SerializerMixin):
     #validations
     @validates('client_name')
     def validate_name(self, key, client_name):
-        if client_name.len() > 3:
+        if len(client_name) > 3:
             return client_name
         else:
             raise ValueError('Names must be longer than 3 Characters')
         
-    @validates('app_time')
-    def validate_time(self, key, app_time):
-        cutoff = datetime.datetime(2023, 8, 17)
+    # @validates('app_date_time')
+    # def validate_time(self, key, app_date_time):
+    #     cutoff = datetime.datetime(2023, 8, 17)
         
-        if app_time == cutoff:
-            print('out of date range')
-            raise ValueError('Please pick a date prior to 08/17/23')
-        else:
-            return app_time
+    #     if app_date_time == cutoff:
+    #         print('out of date range')
+    #         raise ValueError('Please pick a date prior to 08/17/23')
+    #     else:
+    #         return app_date_time

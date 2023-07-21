@@ -75,8 +75,7 @@ class Appointments(Resource):
 
             new_appoinment = Appointment(
                 client_name = data['client_name'],
-                app_time = data['app_time'],
-                con_req = data['con_req'],
+                app_date_time = data['app_date_time'],
                 stylist_id = data['stylist_id'],
                 service_id = data['service_id']
             )
