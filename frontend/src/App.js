@@ -6,19 +6,25 @@ import Banner from './Header/Banner'
 import Stylists from './Stylists';
 import About from './About';
 import Contact from './Contact';
-import Appointment from './Appointments';
+import Appointment from './Appointment';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './index.css';
 
 function App() {
 
   const [stylists, setStylists] = useState([])
-
+  const [newAppointment, setNewAppointment] = useState([])
   useEffect(() => {
     fetch("/stylists")
     .then(resp => resp.json())
     .then(data => setStylists(data))
   },[])
+
+  useEffect(() => {
+    fetch('/appointments')
+    .then(resp => resp.json())
+    .then(newAppointment => setNewAppointment(newAppointment))
+}, [])
 
 
   return (
@@ -34,7 +40,7 @@ function App() {
           <Route path='/Stylists/:id' element={<Stylists/>}></Route>
           <Route path='/About' element={<About />}></Route>
           <Route path='/Contact' element={<Contact />}></Route>
-          <Route path='/Appointments' element={<Appointment/>}></Route>
+          <Route path='/Appointments' element={<Appointment newAppointment = {newAppointment}/>}></Route>
         </Routes>
       </div>
 
