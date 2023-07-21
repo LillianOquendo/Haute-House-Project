@@ -48,15 +48,15 @@ function AppointmentCard({date, name, id}){
 
     return(
         <div className="appointment-card">
-        <div className="px-6 py-4">
-        <h1 className="font-bold text-xl mb-2">{name} has an appointment on: </h1>
-            <h1 className="font-bold text-xl mb-2">{date}</h1>
-            <button type="button" onClick={handleDelete}>Delete</button><br></br>
-            <button type='button' id="edit-button" onClick={handleClick}>Edit</button>
+        <div className="px-6 py-4 text-hautehouse_ltegold">
+        <h1 className="font-bold text-xl mb-2 text-hautehouse_ltegold">{name} has an appointment on: </h1>
+            <h1 className="font-bold text-xl mb-2 text-hautehouse_ltegold">{date}</h1>
+            <button type="button" onClick={handleDelete} className="text-white">Delete</button><br></br>
+            <button type='button' id="edit-button" onClick={handleClick} className="text-white">Edit</button>
             <form id="edit-form" className="edit-form">
                 <label>Enter new date here(mm/dd/yyyy)</label>
                 <input type='text' onChange={(e) => setDate(e.target.value)} value={newDate}></input>
-                <button type='button' onClick={handleSubmit}>Confirm</button>
+                <button type='button' onClick={handleSubmit} className="text-white">Confirm</button>
             </form>
         </div>
 
