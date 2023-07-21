@@ -3,11 +3,13 @@ import AppointmentCard from './AppointmentCard'
 
 
 function Appointment({newAppointment}){
+    console.log(newAppointment)
     const mappedAppt = newAppointment.map((newAppointment) =>(
         <AppointmentCard
         name = {newAppointment.client_name}
         date = {newAppointment.app_date_time}
-        service = {newAppointment.service}
+        service = {newAppointment.service_id}
+        id = {newAppointment.id}
         />
     ))
 

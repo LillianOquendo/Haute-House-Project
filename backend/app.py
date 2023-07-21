@@ -109,11 +109,13 @@ class AppointmentsById(Resource):
     def patch(self, id):
         appointment = Appointment.query.filter(Appointment.id == id).first()
         data = request.get_json()
-
+        print(appointment.app_date_time)
         try:
-            
+            print(data)
             for key in data:
-                setattr(appointment, key, data[key])
+                print(data[key])
+                setattr(appointment, 'app_date_time', data[key])
+            print(appointment.app_date_time)
 
             db.session.add(appointment)
             db.session.commit()

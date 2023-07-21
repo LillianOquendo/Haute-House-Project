@@ -27,6 +27,8 @@ function App() {
     .then(newAppointment => setNewAppointment(newAppointment))
   }, [])
 
+  console.log(newAppointment)
+
 
   return (
     <div className='main'>

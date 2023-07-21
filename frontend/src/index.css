@@ -23,6 +23,11 @@
 
     }
 
+
+    .appointment-card{
+        @apply max-w-sm rounded overflow-hidden shadow-lg border-green-600 border-2;
+    }
+
     /* .banner{
         @apply bg-white container flex-auto mx-auto ;
     } */
@@ -32,6 +37,10 @@
     }
 
     .book-now-form-container{
+        @apply hidden
+    }
+
+    .edit-form{
         @apply hidden
     }
 /*Stylist Page CSS*/
