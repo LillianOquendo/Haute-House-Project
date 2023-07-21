@@ -40,6 +40,8 @@ function Home({stylists}) {
         setClient_Name('')
         setAppt_Date_Time('')
 
+        alert('Appointment Confirmed. See you soon :)!')
+
     }
 
     function handleClick() {

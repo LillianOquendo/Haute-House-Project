@@ -30,6 +30,8 @@ function AppointmentCard({date, name, id}){
         })
         .then(resp => resp.json())
         .then((patchedAppointment) => setDate(newDate))
+
+        alert('Appointment Changed! Please refresh to reflect changes.')
     }
 
     
@@ -44,6 +46,17 @@ function AppointmentCard({date, name, id}){
         
     }
 
+    function handleCloseForm(event) {
+        const form = document.getElementById(`edit-from${id}`)
+        const button = document.getElementById(`edit-button${id}`)
+
+        form.style.display='none'
+        button.style.display='block'
+
+        event.preventDefault();
+
+    }
+
 
 
     return(
@@ -55,8 +68,9 @@ function AppointmentCard({date, name, id}){
             <button type='button' id={`edit-button${id}`} onClick={handleClick} className="text-white">Edit</button>
             <form id={`edit-from${id}`} className="edit-form">
                 <label>Enter new date here(mm/dd/yyyy)</label>
-                <input type='text' onChange={(e) => setDate(e.target.value)} value={newDate}></input>
-                <button type='button' onClick={handleSubmit} className="text-white">Confirm</button>
+                <input type='text' className="text-black" onChange={(e) => setDate(e.target.value)} value={newDate}></input>
+                <button type='button' onClick={handleSubmit} className="text-white">Confirm</button><br></br>
+                <button type='button' onClick={handleCloseForm} className="text-white">Close Edit</button>
             </form>
         </div>
 
