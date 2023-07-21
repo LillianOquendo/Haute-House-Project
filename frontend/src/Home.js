@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Banner from './Header/Banner'
 import Stylist from "./Stylist";
 
-
+ 
 function Home({stylists}) {
     const [appointments, setAppointments] = useState([])
     const [client_name, setClient_Name] = useState('')
@@ -29,8 +29,8 @@ function Home({stylists}) {
         fetch('/appointments', {
             method: 'POST',
             headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
             },
             body : JSON.stringify(new_appointment)
         })
@@ -69,7 +69,7 @@ function Home({stylists}) {
             <span className="book-now-button-container">
                 <button type="button" className="book-now-button" onClick={handleClick} id="book-now">Request An Appointment!</button>
             <span className="book-now-form-container" id="book-now-form">
-                <p className='text-hautehouse_yellow text-xl text-center font-veganstyle'>Send us a request for an appointment and we will reachout within 48 hours! ✂️</p>
+                <p className='text-hautehouse_yellow text-xl text-center font-veganstyle'>Send us a request for an appointment and we will reach out within 48 hours! ✂️</p>
                 <form onSubmit = {handleSubmit}>
                     <label for='client-name' className="text-hautehouse_yellow">First & Last Name:</label><br></br>
                     <input type='text' id='client_name' onChange={(e) => setClient_Name(e.target.value)} name='client_name' value={client_name}></input><br></br>
