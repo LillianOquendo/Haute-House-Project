@@ -15,9 +15,10 @@ const [formData, setFormData] = useState({
     appt_date_time : ''
 });
 
+
 //handle change for submit button
 function handleChange(event){
-    const {name, value} = event.target;
+    const {name, value} = event.target.value;
     setFormData(prevData => ({
         ...prevData,
         [name]:value,
@@ -73,6 +74,9 @@ function handleChange(event){
         
         };
 
+        console.log(formData.client_name)
+        console.log(formData.appt_date_time)
+
     return (
             <div className="home-container">
                 <p className='text-hautehouse_yellow text-xl text-center font-veganstyle'>HAUTE HOUSE</p>
@@ -83,9 +87,9 @@ function handleChange(event){
                 <p className='text-hautehouse_yellow text-xl text-center font-veganstyle'>Send us a request for an appointment and we will reachout within 48 hours! ✂️</p>
                 <form onSubmit = {handleSubmit}>
                     <label for='client-name' className="text-hautehouse_yellow">First & Last Name:</label><br></br>
-                    <input type='text' id='lname' onChange={handleChange} name='lastName' value={formData.lastName}></input><br></br>
+                    <input type='text' id='client_name' onChange={handleChange} name='client_name' value={formData.client_name}></input><br></br>
                     <label for='services' className="text-hautehouse_yellow">Services</label><br></br>
-                    <select name="select-services" id="select-services" onChange={handleChange} value={formData.selectedService}>
+                    <select name="service_id" id="service_id" onChange={handleChange} value={formData.service_id}>
                         <option value='Haircut (Medium - Long Hair) $55.00'>Haircut (Medium - Long Hair) $55.00</option>
                         <option value='Haircut (Short Hair) $35.00'>Haircut (Short Hair) $35.00</option>
                         <option value='Blowdry $50.00'>Blowdry $50.00</option>
@@ -105,13 +109,13 @@ function handleChange(event){
                         <option value='Haircut and Beard Trim $50.00'>Haircut and Beard Trim $50.00</option>
                     </select><br></br>
                     <label for='stylists' className="text-hautehouse_yellow">Stylists</label><br></br>
-                        <select name="selected-stylist" id="selected-stylist" onChange={handleChange} value={formData.selectedStylist}>
+                        <select name="stylist_id" id="stylist_id" onChange={handleChange} value={formData.stylist_id}>
                         <option value='1'>Bryant</option>
                         <option value='2'>Lillian</option>
                         <option value='3'>Tony</option>
                         </select><br></br>
                     <label for='appt-req' className="text-hautehouse_yellow">Requested Appointment Date & Time</label><br></br>
-                    <input type="datetime-local" id='appt-date-time' name='apptDateTime' onChange={handleChange} value={formData.appt_date_time}></input><br></br>
+                    <input type="text" id='appt-date-time' name='apptDateTime' onChange={handleChange} value={formData.appt_date_time}></input><br></br>
                     <button className="text-hautehouse_yellow p-5">Submit</button>
                     <button onClick={handleCloseForm} className="text-hautehouse_yellow">Close Form</button>
                 </form>
